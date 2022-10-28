@@ -5,3 +5,7 @@
 1. open github laptop, "fetch" for syncronization
 2. code locally, such as anaconda jupyter, etc.
 3. github laptop: commit + push
+
+## Cross-file using data:
+1. %run Data_preprocessing.ipynb
+2. X_train etc
