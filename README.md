@@ -1,4 +1,6 @@
-# Jebva-LOS_and_Mortality_Project
+<h1 align="center">Jebva<h1>
+
+-LOS_and_Mortality_Project-
  
 ## Sample folder structure : see the png file.
 ## Procedure for github
