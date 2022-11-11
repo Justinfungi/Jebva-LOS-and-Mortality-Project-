@@ -1,3 +1,9 @@
 *.csv
 *.zip
 data_folder
+
+# ignore doc for macOS file personalization
+*/.DS_Store
+
+# ignore the data storing models
+*.dat
