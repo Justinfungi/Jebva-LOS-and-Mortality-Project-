@@ -117,7 +117,7 @@ X_test_nozero = X_test_nozero[X_train_nozero.columns]
 X_train_nozero
 
 
-# In[106]:
+# In[9]:
 
 
 # Impute the 0 with mean
@@ -147,7 +147,7 @@ sel_.fit(scaler.transform(X_train_nozero), y_train_t1_value)
 X_train_selected = pd.DataFrame(sel_.transform(scaler.transform(X_train_nozero)))
 
 
-# In[25]:
+# In[11]:
 
 
 import matplotlib.pyplot as plt
@@ -169,7 +169,7 @@ plt.annotate(np.max(test_log_scores).round(4), (np.argmax(test_log_scores), np.m
 plt.show()
 
 
-# In[26]:
+# In[12]:
 
 
 train_log_scores=[]
@@ -190,7 +190,7 @@ plt.annotate(np.max(test_log_scores).round(4), (np.argmax(test_log_scores), np.m
 plt.show()
 
 
-# In[107]:
+# In[111]:
 
 
 scaler = StandardScaler()
@@ -201,10 +201,17 @@ sel_.fit(scaler.transform(X_train_nozero), y_train_t1_value)
 X_train_selected_t1 = pd.DataFrame(sel_.transform(scaler.transform(X_train_nozero)))
 X_valid_selected_t1 = pd.DataFrame(sel_.transform(scaler.transform(X_valid_nozero)))
 X_test_selected_t1 = pd.DataFrame(sel_.transform(scaler.transform(X_test_nozero)))
+cols=sel_.get_support(indices=True)
+headnozero_new=[]
+for i in cols:
+    headnozero_new.append(headnozero[i])
+X_train_selected_t1.columns=headnozero_new
+X_valid_selected_t1.columns=headnozero_new
+X_test_selected_t1.columns=headnozero_new
 X_train_selected_t1
 
 
-# In[62]:
+# In[113]:
 
 
 from sklearn.tree import DecisionTreeRegressor, export_graphviz, export_text, plot_tree
@@ -229,7 +236,7 @@ plt.annotate(np.max(test_rf_scores).round(4), (np.argmax(test_rf_scores), np.max
 plt.show()
 
 
-# In[108]:
+# In[114]:
 
 
 scaler = StandardScaler()
@@ -240,12 +247,20 @@ sel_.fit(scaler.transform(X_train_nozero), y_train_t2_value)
 X_train_selected_t2 = pd.DataFrame(sel_.transform(scaler.transform(X_train_nozero)))
 X_valid_selected_t2 = pd.DataFrame(sel_.transform(scaler.transform(X_valid_nozero)))
 X_test_selected_t2 = pd.DataFrame(sel_.transform(scaler.transform(X_test_nozero)))
+cols=sel_.get_support(indices=True)
+headnozero_new2=[]
+for i in cols:
+    headnozero_new2.append(headnozero[i])
+X_train_selected_t2.columns=headnozero_new2
+X_valid_selected_t2.columns=headnozero_new2
+X_test_selected_t2.columns=headnozero_new2
+
 X_train_selected_t2
 
 
 # ## Normalization
 
-# In[109]:
+# In[115]:
 
 
 scaler = preprocessing.StandardScaler()
@@ -277,7 +292,7 @@ X_test_selected_t2_norm=pd.DataFrame(X_test_selected_t2_scaled)
 
 # # Data report
 
-# In[110]:
+# In[116]:
 
 
 print("*"*60)
@@ -289,5 +304,6 @@ print("X_train_selected_t1_norm, X_train_selected_t2_norm, X_valid_selected_t1_n
 print("-"*60)
 print("There are 4 set of Y")
 print("y_train_t1, y_train_t2, y_valid_t1, y_valid_t2")
+print("when training, please use: 'y_train_t1_value,y_train_t2_value,y_valid_t1_value,y_valid_t2_value'")
 print("*"*60)
 
