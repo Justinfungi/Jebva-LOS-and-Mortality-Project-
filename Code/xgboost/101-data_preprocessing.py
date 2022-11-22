@@ -46,7 +46,6 @@ li=[] # Find the positions of the columns with means of the particular feature a
 for i in range(47, 7488, 72):
     li.append(i)
 #print(li)
-
 headlist=list(X_train.columns.values)[1:]
 head=[]
 for i in li:
