@@ -8,3 +8,4 @@ data_folder
 # ignore the data storing models
 *.dat
 .DS_Store
+Sources
